@@ -6,7 +6,7 @@ const db = require("./utils/db-connection");
 require("./model");
 app.use(express.json());
 app.use("/student", studentRouter);
-db.sync({ force: true })
+db.sync()
   .then(() => {
     app.listen(3000, () => {
       console.log("Server running");

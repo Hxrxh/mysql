@@ -19,6 +19,7 @@ const Students = sequelize.define(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    departmentId: { type: DataTypes.INTEGER },
   },
   {
     timestamps: false,

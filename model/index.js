@@ -1,10 +1,13 @@
-const student = require("../model/students");
-const idCard = require("../model/idCard");
+const Student = require("../model/students");
+const Department = require("../model/department");
 
-student.hasOne(idCard);
-idCard.belongsTo(student);
+// One Department has many Students
+Department.hasMany(Student, {
+  foreignKey: "departmentId",
+  onDelete: "CASCADE",
+});
 
-module.exports = {
-  student,
-  idCard,
-};
+// Each Student belongs to one Department
+Student.belongsTo(Department, { foreignKey: "departmentId" });
+
+module.exports = { Student, Department };
