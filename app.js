@@ -1,10 +1,11 @@
 const express = require("express");
 const app = express();
-const userRouter = require("./routes/userRouter");
+const studentRouter = require("./routes/studentRouter");
 const db = require("./utils/db-connection");
-const studentModel = require("./model/students");
+
+require("./model");
 app.use(express.json());
-app.use("/users", userRouter);
+app.use("/student", studentRouter);
 db.sync({ force: true })
   .then(() => {
     app.listen(3000, () => {

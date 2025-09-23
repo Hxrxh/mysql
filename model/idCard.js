@@ -2,8 +2,8 @@ const { Sequelize, DataTypes } = require("sequelize");
 
 const sequelize = require("../utils/db-connection");
 
-const Students = sequelize.define(
-  "Students",
+const idCardTable = sequelize.define(
+  "idCard",
   {
     id: {
       type: DataTypes.INTEGER,
@@ -11,12 +11,8 @@ const Students = sequelize.define(
       allowNull: false,
       autoIncrement: true,
     },
-    name: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    email: {
-      type: DataTypes.STRING,
+    cardnumber: {
+      type: DataTypes.INTEGER,
       allowNull: false,
     },
   },
@@ -24,4 +20,4 @@ const Students = sequelize.define(
     timestamps: false,
   }
 );
-module.exports = Students;
+module.exports = idCardTable;
